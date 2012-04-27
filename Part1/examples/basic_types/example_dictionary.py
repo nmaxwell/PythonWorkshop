@@ -17,4 +17,3 @@ print d1
 
 del d1['new_key']
 print d1
-
