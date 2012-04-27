@@ -49,3 +49,4 @@ print xs[::-1] #reversed
 print xs[::2] #every other
 
 print [xs[0],xs[-1]] #first and last
+
