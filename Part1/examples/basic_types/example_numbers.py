@@ -30,3 +30,9 @@ from fractions import *
 print Fraction(1,3) #should be exactly 1
 print (1.0 / 3.0)
 
+#Complex
+print complex(2,3) + complex(1,1)
+print complex(4,5) - complex(6,7)
+print complex(10,11) * complex(12,13)
+print complex(712,23) / complex(1000,88)
+print complex(1,1) ** 2
