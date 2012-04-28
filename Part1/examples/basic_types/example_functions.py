@@ -19,4 +19,7 @@ add_varargs(*range(100))
 add_kwargs(x=1,y=2,z=3)
 
 
+def square_and_cube(x):
+    return (x * x, x * x * x)
 
+square,cube = square_and_cube(3)
