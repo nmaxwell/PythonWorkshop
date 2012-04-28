@@ -1,0 +1,178 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath, amssymb, enumerate, mathenv}
+\usepackage[arrow,matrix,curve,cmtip,ps]{xy}
+\usepackage{graphicx, float}
+%\usepackage{enumitem}
+
+
+
+%Set margins:
+
+\setlength{\topmargin}{-1in}
+\setlength{\textheight}{10in}
+\setlength{\oddsidemargin}{-0.5in}
+\setlength{\textwidth}{7.3in}
+
+%Macros:
+
+\newcommand{\pset}[1]{ \mathcal{P}(#1) }
+\newcommand{\st}[0]{ \textrm{ s.t. } }
+\newcommand{\wrt}[0] { \textrm{ w.r.t. } }
+\newcommand{\inv}[0] { ^{-1}}
+%\newcommand{ \cf }[1] { \chi_{_{#1}} }
+\newcommand{ \cf }[1] { \mathbf{1}_{#1} }
+
+
+\newcommand{ \supp } { \textrm{supp} }
+
+\newcommand{\rimply}[0] { \Rightarrow }
+\newcommand{\limply}[0] { \Leftarrow }
+\newcommand{\rlimply}[0] { \Leftrightarrow }
+\newcommand{\lrimply}[0] { \Leftrightarrow }
+
+\renewcommand{\Re}{ \operatorname{Re} }
+\renewcommand{\Im}{ \operatorname{Im} }
+
+\newcommand{\nats}[0] { \mathbb{N}}
+\newcommand{\reals}[0] { \mathbb{R}}
+\newcommand{\scalars}[0] { \mathbb{F}}
+\newcommand{\Cdb}[0] { \mathbb{C}}
+\newcommand{\Rdb}[0] { \mathbb{R}}
+\newcommand{\Fdb}[0] { \mathbb{F}}
+\newcommand{\rationals}[0] { \mathbb{Q}}
+\newcommand{\complexes}[0] { \mathbb{Q}}
+\newcommand{\cmplxs}[0] { \mathbb{Q}}
+\newcommand{\ints}[0] { \mathbb{Z}}
+
+
+\newcommand{\eps}[0] {  \epsilon }
+\newcommand{\lam}[0] {  \lambda }
+\newcommand{\Lam}[0] {  \Lambda }
+\newcommand{\om}[0] { \omega }
+\newcommand{\Om}[0] { \Omega }
+
+\newcommand{\A}[0] { \mathcal{A} }
+\newcommand{\B}[0] { \mathcal{B} }
+\newcommand{\C}[0] { \mathcal{C} }
+\newcommand{\D}[0] { \mathcal{D} }
+\newcommand{\E}[0] { \mathcal{E} }
+\newcommand{\F}[0] { \mathcal{F} }
+\newcommand{\G}[0] { \mathcal{G} }
+\newcommand{\M}[0] { \mathcal{M} }
+\newcommand{\N}[0] { \mathcal{N} }
+\newcommand{\curlyO}[0] { \mathcal{O} }
+\newcommand{\curlyP}[0] { \mathcal{P} }
+\newcommand{\R}[0] { \mathcal{R} }
+\newcommand{\curlyS}[0] { \mathcal{S} }
+\newcommand{\U}[0] { \mathcal{U} }
+\newcommand{\V}[0] { \mathcal{V} }
+\newcommand{\W}[0] { \mathcal{W} }
+\newcommand{\Bl}[0] { \mathcal{B} \ell }
+\newcommand{\Ell}[0] { \mathcal{L} }
+
+%crap
+
+
+\newcommand{\fall}[0] { \text{ for all } }
+\newcommand{\Var}[0] { \text{ Var } }
+\newcommand{\defeq}[0] { := }
+\newcommand{\Ball}[0] {\text{Ball}}
+\newcommand{\partset}[1]{ \mathcal{P}^{*}(#1) }
+\newcommand{\aew}[0] { \text{ a.e. } }
+\newcommand{\where}[0] { \textrm{ where } }
+\newcommand{\norm}[1] { \| #1 \| }
+\newcommand{\Ran}[0] { \text{Range} }
+\newcommand{\OR}[0] { \text{ or } }
+\newcommand{\AND}[0] { \text{ and } }
+\newcommand{\RP}[0] { \mathbb{RP} }
+\newcommand{\Trace}[0] { \text{Trace} }
+%\newcommand{\Var}[0] { \text{Var} }
+
+\newcommand{\parder}[2] {\frac{\partial #1 }{ \partial #2}}
+
+
+
+
+
+\begin{document}
+
+\begin{flushleft}
+{\bf Statistics, M6383,  Homework 2: Nicholas Maxwell 2/25/2011}
+\end{flushleft}
+
+
+
+Let $X$ be a Poisson-distributed random varaible, so $X: \Om \to \{ 0, 1, ...\}$, with $f(k; \lam) \defeq P(X = k) = \exp(-\lam)\lam^k/k!$, for all $k \in \nats_0$. $\varphi(t) = E[e^{tX}] = e^{-\lam} \sum_{k=0^\infty} \lam^k e^{tk} / k!$ = $e^{-\lam} \sum_{k=0^\infty} (\lam e^{t})^k / k! = $  $e^{-\lam} \exp(\lam e^{t})$ = $\exp(\lam(e^{t}-1))$; $\varphi^{1}(t) = \lam$, $\varphi^{(2)} = \lam^2 + \lam$, so $E[X] = \lam$, $\Var[X] = E[X^2] - E[X]^2 = \lam$. If $X_i \sim f(\cdot; \lam_i)$ for $i = 1,2,..,N$, and $X_i$ are independent, then $\varphi_{X_1 + X_2}(t) = \varphi_{X_1}(t)\varphi_{X_2}(t)$ = $\exp(\lam_1(e^{t}-1)) \exp(\lam_2(e^{t}-1)) $ $= \exp((\lam_1 + \lam_2)(e^{t}-1))$, so $X_1 + X_2 \sim f(\cdot; \lam_1 + \lam_2)$. Iductively, $X_1 + ... + X_N \sim f(\cdot; \lam_1 + ... + \lam_N)$ \\
+
+{\bf Q1} Poisson random varibles belong to the exponential family: $\log(f(k; \lam)) = -\lam + k\log(\lam) - \log(k!) = $ $h(k) + g(\lam) + u(\lam)T(k)$, with $h(k) = -\log(k!), g(\lam) = - \lam$, $u(\lam) = \log(\lam), T(k) = k$. \\
+
+MLE: $L(\lam; x_1, ..., x_N) = \prod_{i=1}^N \lam^{x_i} e^{-\lam}/x_i!$, $\log L(x_1, ..., x_N; \lam) = \sum_{i=1}^N (x_i \log \lam - \lam - \log(x_i!))$. So we maximize $m(\lam) =  \log \lam \sum_{i=1}^N x_i- N \lam $ in $\lam$. $\frac{d}{d\lam} m(\lam) = -N + \frac{1}{\lam}  \sum_{i=1}^N x_i = 0$, so $\lam = \frac{1}{N} \sum_{i=1}^N x_i$, and $\hat \lam = \overline X_N$. \\
+
+$E[\hat \lambda] = E[\overline X_N] = \frac{1}{N} N \lam = \lam$. $\Var[\hat X] = \frac{1}{N^2} N \Var{X_j} = \lam / N$. \\
+
+Cramer-Rao Bound: Fischer information is $I(\lam) = -E[\frac{\partial^2}{\partial \lam^2} \log L(\lam; X_1, ..., X_N)]$ $= -E[-\frac{1}{\lam^2}  \sum_{i=1}^N X_i ] = \frac{1}{\lam^2} N \lam = N/\lam$, so $\Var(\hat \lambda) \ge \frac{1}{I(\theta)} = \lambda/N$. \\
+
+So, $E[\hat \lam] = \lam$, so $\hat \lam$ is unbiased, and $\Var{\hat \lam}$ achieves the Cramer-Rao bound, so $\hat \lam$ is optimal. \\
+
+{\bf Q2} Confidence interval for $\lam$: $\overline X_N$ has finite variance, $\sigma^2 = \lam/N$, so we can apply the Chebyshev inequality; $P(|\overline X_N - E[\overline X_N]| \ge \eps \sigma) \le 1/\eps^2$, for all $\eps >0$. Then $P(|\hat \lam - \lam|\ge \eps \sqrt{\lam / N}) \ge 1/\eps^2$. Now,
+
+\begin{eqnarray}
+|\hat \lam - \lam | \ge \eps \sqrt{\lam / N} \rimply  \lam^2 + \hat \lam ^2 - 2 \lam \hat \lam \ge \eps^2 \lam / N \rimply\\
+ \lam^2 + - 2 \lam \hat \lam - \eps^2 \lam / N  \ge  -\hat \lam ^2\rimply \\
+ \lam^2 + - 2 \lam (\hat \lam + \frac{1}{2} \eps^2 / N) + (\hat \lam + \frac{1}{2} \eps^2 / N)^2   \ge  -\hat \lam ^2 + (\hat \lam + \frac{1}{2} \eps^2 / N)^2 \rimply \\
+ (\lam - (\hat \lam + \frac{1}{2} \eps^2 / N))^2   \ge  -\hat \lam ^2 + (\hat \lam + \frac{1}{2} \eps^2 / N)^2 \rimply \\
+|\lam - (\hat \lam + \frac{1}{2} \eps^2 / N) |   \ge + \sqrt{-\hat \lam ^2 + (\hat \lam + \frac{1}{2} \eps^2 / N)^2 }\rimply \\
+|\lam - (\hat \lam + \frac{1}{2} \eps^2 / N) |   \ge + \sqrt{-\hat \lam ^2 + \hat \lam  ^2 + (\frac{1}{2} \eps^2 / N)^2 + 2 \hat \lam (\frac{1}{2} \eps^2 / N) }  \rimply \\
+|\lam - (\hat \lam + \frac{1}{2} \eps^2 / N) |   \ge + ( \eps / N) \sqrt{  \eps^2 / 4 + N \hat \lam  }  \rimply \\
+ ( \eps / N) \sqrt{  \eps^2 / 4 + N \hat \lam  } -  (\hat \lam + \frac{1}{2} \eps^2 / N) \le \lam \le  ( \eps / N) \sqrt{  \eps^2 / 4 + N \hat \lam  } + (\hat \lam + \frac{1}{2} \eps^2 / N)
+\end{eqnarray}
+$$
+A(\hat \lam ) =  ( \eps / N) \sqrt{  \eps^2 / 4 + N \hat \lam  } -  (\hat \lam + \frac{1}{2} \eps^2 / N)
+$$
+$$
+B(\hat \lam ) =  ( \eps / N) \sqrt{  \eps^2 / 4 + N \hat \lam  } +  (\hat \lam + \frac{1}{2} \eps^2 / N)
+$$
+$$
+(B-A)(\hat \lam) =  2 \hat \lam +  \eps^2 / N
+$$
+$$
+P(\lam \in [A(\hat \lam), B(\hat \lam)]) \ge 1- 1 / \eps^2
+$$
+if we want $P(\lam \in [A(\hat \lam), B(\hat \lam)]) \ge \alpha$, $\alpha \in \{ 0.9, 0.95, 0.99\}$, then $\eps = \sqrt{1/(1-\alpha)}$, so $\eps \in \{ 3.16, 4.47, 10.0\}$, respectively. \\ 
+
+
+{\bf Q3} Let $\R = \{ k/N; k \in \nats_0\}$, which is the range of $\hat \lam$. $P(\hat \lam = x) = P(N \hat \lam = N x) = P(\sum_{i=1}^N X_i = N x) = f(N x ; N \lam)$, where $x \in \R$. This is true because $X_1 + ... + X_N \sim f(\cdot; \lam_1 + ... + \lam_N)$ as stated before, but here $\lam_i = \lam$. \\
+
+Have two hypotheses, $H_0 : \lam = \lam_0$, $H_1: \lam = \lam_1$. Let $K(x) = \log f(Nx; N\lam_0) - \log f(Nx; N\lam_1)$, then $K(x) = -N \lam_0 + N \lam_1 + Nx \log \lam_0 - Nx \log \lam_1$. Then the optimal decision function is $D: \R \to \{ 0, 1\} = \cf{R}(x)$, where $R = \{ x \in \R; K(x) \le T\}$, for some threshold $T$, by the Neymann-Pearson Theorem. Choose this $T$ such that $P($ accept $H_1$ $| H_0$ is true $) \le \alpha$, $\alpha$ specified. This is the same as $P(K(\hat \lam) \le T | H_0) \le \alpha$, so $P(-N \lam_0 + N \lam_1 + N \hat \lam \log \lam_0 - N \hat \lam \log \lam_1 \le T | H_0) =$ 
+$$
+P(\hat \lam \le \frac{T/N + \lam_0 - \lam_1}{\log(\lam_0 / \lam_1)} | H_0) \le \alpha
+$$
+
+%F_{N \lam_0} \left( \frac{T/N + \lam_0 - \lam_1}{\log(\lam_0 / \lam_1)} \right) \le \alpha
+
+Now, $P(\hat \lam \le a) = P(S_N \le N a)$, where $S_N = X_1 + ... + X_N$, and $S_N$ is Poisson with parameter $N \lam_0$ (when $H_0$ is true), so $P(\hat \lam \le a | H_0 ) = F_{N \lam_0} (N a)$, where $F_\lam$ is the cumulative distribution function of the poisson distribution of parameter $\lam$. Now,
+
+$$
+F_{\lam}(k) = e^{-\lam} \sum_{j=0}^k \lam^j/j! = \frac{\Gamma(k+1, \lam)}{k!}
+$$
+
+
+
+
+so for $\lam_0 = 1$, $\lam_1 = 5$, and $\alpha = 5\%$, 
+
+$$
+P( \text{ reject } H_1 | H_0 \text{ true } ) = F_{1} \left( \frac{T/N - 4 }{-1.609} \right) \ge 95\%
+$$
+now some values of $(z, F_1(z))$ are (0,0.368), (1,0.736), (2,0.920), (3,0.981), (4,0.996), so for a power of test, we need $k \ge 3$.
+
+
+\end{document}
+
+
+
+
+
+
+
